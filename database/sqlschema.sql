@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS `controllers`;
 CREATE TABLE `controllers` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT_NULL,
+  `user_id` int(11) NOT NULL,
   `serial` VARCHAR(255) NOT NULL,
   `api_key` VARCHAR(32) NOT NULL,
   PRIMARY KEY (`ID`),
@@ -12,12 +12,13 @@ CREATE TABLE `controllers` (
 DROP TABLE IF EXISTS `sensor_data`;
 CREATE TABLE `sensor_data` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `controller_id` int(11) NOT_NULL,
-  `moisture` SMALLINT(11) NOT_NULL,
-  `temperature` SMALLINT(3) NOT_NULL,
-  `humidity` TINYint(3) NOT NULL,
+  `controller_id` int(11) NOT NULL,
+  `moisture` SMALLINT(4) NOT NULL,
+  `temperature` FLOAT NOT NULL,
+  `humidity` FLOAT NOT NULL,
+  `time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`),
-  UNIQUE KEY `ID` (`ID`),
+  UNIQUE KEY `ID` (`ID`)
   );
 
   DROP TABLE IF EXISTS `users`;

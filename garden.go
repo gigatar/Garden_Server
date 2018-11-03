@@ -1,7 +1,7 @@
 package main
 
 import (
-	rest "Garden/rest/sensors"
+	"Garden_Server/rest"
 	"log"
 	"net/http"
 
@@ -20,6 +20,7 @@ func main() {
 	restAPI := router.PathPrefix(restEndpoint).Subrouter()
 	// Health functions
 	restAPI.HandleFunc("/sensor", rest.AddSensorData).Methods("POST")
+	restAPI.HandleFunc("/sensor", rest.GetSensorData).Methods("GET")
 
 	// User functions
 	// rest.HandleFunc("/users", users.ListUsers).Methods("GET")
